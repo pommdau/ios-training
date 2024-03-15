@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var wheatherImageView: UIImageView!
-    
+    @IBOutlet weak var minTemperatureLabel: UILabel!
+    @IBOutlet weak var maxTemperatureLabel: UILabel!
+
     private var wheatherInfo: WheatherInfo? {
         didSet {
             configureUI()
@@ -37,6 +39,8 @@ class ViewController: UIViewController {
         }
         wheatherImageView.image = wheatherInfo.image
         wheatherImageView.tintColor = wheatherInfo.imageColor
+        minTemperatureLabel.text = "\(wheatherInfo.minTemperature)℃"
+        maxTemperatureLabel.text = "\(wheatherInfo.maxTemperature)℃"
     }
     
     // MARK: - Helpers
