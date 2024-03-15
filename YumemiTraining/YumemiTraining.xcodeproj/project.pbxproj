@@ -14,6 +14,8 @@
 		DA0C9B092BA404FA00118469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA0C9B082BA404FA00118469 /* Assets.xcassets */; };
 		DA0C9B0C2BA404FA00118469 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0C9B0A2BA404FA00118469 /* LaunchScreen.storyboard */; };
 		DA0C9B152BA4052B00118469 /* YumemiWeather in Frameworks */ = {isa = PBXBuildFile; productRef = DA0C9B142BA4052B00118469 /* YumemiWeather */; };
+		DA0C9B182BA41DAC00118469 /* WheatherAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0C9B172BA41DAC00118469 /* WheatherAPIRequest.swift */; };
+		DA0C9B1A2BA4258600118469 /* AreaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0C9B192BA4258600118469 /* AreaResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		DA0C9B082BA404FA00118469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA0C9B0B2BA404FA00118469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA0C9B0D2BA404FA00118469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA0C9B172BA41DAC00118469 /* WheatherAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherAPIRequest.swift; sourceTree = "<group>"; };
+		DA0C9B192BA4258600118469 /* AreaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		DA0C9AFE2BA404F900118469 /* YumemiTraining */ = {
 			isa = PBXGroup;
 			children = (
+				DA0C9B162BA41D5700118469 /* Service */,
 				DA0C9AFF2BA404F900118469 /* AppDelegate.swift */,
 				DA0C9B012BA404F900118469 /* SceneDelegate.swift */,
 				DA0C9B032BA404F900118469 /* ViewController.swift */,
@@ -67,6 +72,15 @@
 				DA0C9B0D2BA404FA00118469 /* Info.plist */,
 			);
 			path = YumemiTraining;
+			sourceTree = "<group>";
+		};
+		DA0C9B162BA41D5700118469 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DA0C9B172BA41DAC00118469 /* WheatherAPIRequest.swift */,
+				DA0C9B192BA4258600118469 /* AreaResponse.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0C9B1A2BA4258600118469 /* AreaResponse.swift in Sources */,
 				DA0C9B042BA404F900118469 /* ViewController.swift in Sources */,
 				DA0C9B002BA404F900118469 /* AppDelegate.swift in Sources */,
+				DA0C9B182BA41DAC00118469 /* WheatherAPIRequest.swift in Sources */,
 				DA0C9B022BA404F900118469 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

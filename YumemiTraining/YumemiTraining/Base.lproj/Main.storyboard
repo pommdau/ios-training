@@ -58,10 +58,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42b-DQ-0u4">
                                 <rect key="frame" x="128" y="624.33333333333337" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lfc-Sd-7h4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG6-9L-Baq">
                                 <rect key="frame" x="222" y="624.33333333333337" width="47" height="30"/>
                                 <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0M-cb-3DD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -76,6 +82,9 @@
                             <constraint firstItem="zG6-9L-Baq" firstAttribute="centerX" secondItem="ovd-b8-Q64" secondAttribute="centerX" id="uV3-UR-DzD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="wheatherImageView" destination="KpD-qU-weC" id="Zt8-Ji-ERM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
