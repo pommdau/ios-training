@@ -17,30 +17,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSB-cU-zjO">
-                                <rect key="frame" x="98" y="288" width="196" height="276"/>
+                                <rect key="frame" x="98.333333333333329" y="307.66666666666669" width="196.33333333333337" height="236.66666666666669"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KpD-qU-weC">
-                                        <rect key="frame" x="0.0" y="0.0" width="196" height="196"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="196.66666666666666"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KpD-qU-weC" secondAttribute="height" multiplier="1:1" id="cIq-oa-Wdg"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vA-51-L6Z">
+                                        <rect key="frame" x="0.0" y="196.66666666666663" width="98.333333333333329" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovd-b8-Q64">
+                                        <rect key="frame" x="98.333333333333314" y="196.66666666666663" width="98" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <color key="backgroundColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="0.1714610927152318" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="ovd-b8-Q64" firstAttribute="width" secondItem="KpD-qU-weC" secondAttribute="width" multiplier="1:2" id="3Or-ic-STi"/>
+                                    <constraint firstItem="1vA-51-L6Z" firstAttribute="width" secondItem="KpD-qU-weC" secondAttribute="width" multiplier="1:2" id="O5d-bh-Tep"/>
+                                    <constraint firstAttribute="bottom" secondItem="1vA-51-L6Z" secondAttribute="bottom" id="PwE-wj-GfP"/>
+                                    <constraint firstItem="ovd-b8-Q64" firstAttribute="leading" secondItem="1vA-51-L6Z" secondAttribute="trailing" id="PyH-rR-22A"/>
+                                    <constraint firstAttribute="bottom" secondItem="ovd-b8-Q64" secondAttribute="bottom" id="RoK-xR-lqX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ovd-b8-Q64" secondAttribute="trailing" id="SQM-bJ-0sG"/>
                                     <constraint firstItem="KpD-qU-weC" firstAttribute="leading" secondItem="jSB-cU-zjO" secondAttribute="leading" id="Wg2-Kw-yvX"/>
+                                    <constraint firstItem="ovd-b8-Q64" firstAttribute="top" secondItem="KpD-qU-weC" secondAttribute="bottom" id="p3L-tf-oiX"/>
                                     <constraint firstAttribute="trailing" secondItem="KpD-qU-weC" secondAttribute="trailing" id="rxx-aa-clN"/>
+                                    <constraint firstItem="1vA-51-L6Z" firstAttribute="leading" secondItem="jSB-cU-zjO" secondAttribute="leading" id="sOY-jr-OeJ"/>
+                                    <constraint firstItem="1vA-51-L6Z" firstAttribute="top" secondItem="KpD-qU-weC" secondAttribute="bottom" id="v1V-o2-vSs"/>
                                     <constraint firstItem="KpD-qU-weC" firstAttribute="top" secondItem="jSB-cU-zjO" secondAttribute="top" id="x5c-fI-yfk"/>
-                                    <constraint firstAttribute="bottom" secondItem="KpD-qU-weC" secondAttribute="bottom" constant="80" id="yXY-ri-8bt"/>
+                                    <constraint firstAttribute="bottom" secondItem="KpD-qU-weC" secondAttribute="bottom" constant="40" id="yXY-ri-8bt"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42b-DQ-0u4">
+                                <rect key="frame" x="128" y="624.33333333333337" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG6-9L-Baq">
+                                <rect key="frame" x="222" y="624.33333333333337" width="47" height="30"/>
+                                <state key="normal" title="Reload"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jSB-cU-zjO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bth-21-mDZ"/>
                             <constraint firstItem="jSB-cU-zjO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="C9L-MM-t3p"/>
+                            <constraint firstItem="42b-DQ-0u4" firstAttribute="centerX" secondItem="1vA-51-L6Z" secondAttribute="centerX" id="KJA-Jt-hPB"/>
+                            <constraint firstItem="42b-DQ-0u4" firstAttribute="top" secondItem="jSB-cU-zjO" secondAttribute="bottom" constant="80" id="hVU-Pz-tcp"/>
                             <constraint firstItem="jSB-cU-zjO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qWx-A3-O1g"/>
+                            <constraint firstItem="zG6-9L-Baq" firstAttribute="top" secondItem="jSB-cU-zjO" secondAttribute="bottom" constant="80" id="sX8-9U-4rh"/>
+                            <constraint firstItem="zG6-9L-Baq" firstAttribute="centerX" secondItem="ovd-b8-Q64" secondAttribute="centerX" id="uV3-UR-DzD"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -52,9 +85,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
