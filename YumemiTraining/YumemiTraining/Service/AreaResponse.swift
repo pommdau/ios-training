@@ -5,7 +5,7 @@
 //  Created by HIROKI IKEUCHI on 2024/03/15.
 //
 
-import Foundation
+import UIKit
 
 /*
  レスポンスのJSON文字列の例:
@@ -46,4 +46,22 @@ struct WheatherInfo: Decodable {
     let maxTemperature: Int
     let minTemperature: Int
     
+    var image: UIImage? {
+        UIImage(named: "WhetherStatus/\(condition)")
+    }
+    
+    var imageColor: UIColor {
+        switch condition {
+        case "cloudy":
+            return .lightGray
+        case "rainy":
+            return .systemBlue
+        case "sunny":
+            return .systemRed
+        default:
+            fatalError("[Error] \(condition) is undefined")
+        }
+        
+    }
 }
+

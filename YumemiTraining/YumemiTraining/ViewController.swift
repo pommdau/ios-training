@@ -14,14 +14,30 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var wheatherImageView: UIImageView!
     
+    private var wheatherInfo: WheatherInfo? {
+        didSet {
+            configureUI()
+        }
+    }
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Task {
+            try? await loadWeather()
+        }
     }
     
     // MARK: - View
+    
+    private func configureUI() {
+        guard let wheatherInfo else {
+            return
+        }
+        wheatherImageView.image = wheatherInfo.image
+        wheatherImageView.tintColor = wheatherInfo.imageColor
+    }
     
     // MARK: - Helpers
 }
@@ -34,9 +50,10 @@ extension ViewController {
         guard let request = WheatherAPIRequest() else {
             return
         }
-        let wheather = try await YumemiWeather.fetchWeather(request.jsonString)
         
-        print(wheather)
+        let response = try YumemiWeather.fetchWeather(request.jsonString)
+        let wheatherInfo = try JSONDecoder().decode(WheatherInfo.self, from: response.data(using: .utf8)!)
+        self.wheatherInfo = wheatherInfo
     }
     
 }
