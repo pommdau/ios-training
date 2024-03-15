@@ -26,9 +26,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            try? await loadWeather()
-        }
+        
+        reloadButtonTapped(self)
     }
     
     // MARK: - View
@@ -43,6 +42,32 @@ class ViewController: UIViewController {
         maxTemperatureLabel.text = "\(wheatherInfo.maxTemperature)℃"
     }
     
+    private func presentErrorModal(_ error: Error) {
+        var errorMessage = ""
+        if let error = error as? YumemiWeatherError {
+            switch error {
+            case .invalidParameterError:
+                errorMessage = "APIのパラメータが不正です"
+            case .unknownError:
+                errorMessage = "不明なエラーです"
+            }
+        } else {
+            errorMessage = error.localizedDescription
+        }
+        
+        let alert = UIAlertController(
+            title: "天気情報の取得中にエラーが発生しました",
+            message: errorMessage,
+            preferredStyle: .alert)
+                
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+                
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Helpers
 }
 
@@ -54,7 +79,6 @@ extension ViewController {
         guard let request = WheatherAPIRequest() else {
             return
         }
-        
         let response = try YumemiWeather.fetchWeather(request.jsonString)
         let wheatherInfo = try JSONDecoder().decode(WheatherInfo.self, from: response.data(using: .utf8)!)
         self.wheatherInfo = wheatherInfo
@@ -66,18 +90,17 @@ extension ViewController {
 
 extension ViewController {
         
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
+    @IBAction func closeButtonTapped(_ sender: Any) {
         
     }
     
-    @IBAction func reloadButtonTapped(_ sender: UIButton) {
+    @IBAction func reloadButtonTapped(_ sender: Any) {
         Task {
             do {
                 try await loadWeather()
             } catch {
-                print(error.localizedDescription)
+                presentErrorModal(error)
             }
         }
     }
-    
 }
