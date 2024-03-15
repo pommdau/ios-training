@@ -47,23 +47,30 @@ class ViewController: UIViewController {
         if let error = error as? YumemiWeatherError {
             switch error {
             case .invalidParameterError:
-                errorMessage = "APIのパラメータが不正です"
+                errorMessage = "指定されたパラメータが不正です。デベロッパに問い合わせてください。"
             case .unknownError:
-                errorMessage = "不明なエラーです"
+                errorMessage = "時間をおいてから再度実行してください。"
             }
         } else {
             errorMessage = error.localizedDescription
         }
         
         let alert = UIAlertController(
-            title: "天気情報の取得中にエラーが発生しました",
+            title: "天気情報の取得ができませんでした",
             message: errorMessage,
             preferredStyle: .alert)
-                
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        
+        
+        let retryAction = UIAlertAction(title: "リトライ", style: .default) { _ in
+            self.reloadButtonTapped(self)
+        }
+        
+        let okAction = UIAlertAction(title: "閉じる", style: .cancel) { _ in
             self.dismiss(animated: true, completion: nil)
         }
+        
         alert.addAction(okAction)
+        alert.addAction(retryAction)
                 
         present(alert, animated: true, completion: nil)
     }
