@@ -96,7 +96,7 @@ class WeatherViewController: UIViewController {
 
 extension WeatherViewController {
     
-    func loadWeather() async throws {
+    func reloadWeather() async throws {
         guard let request = WheatherAPIRequest() else {
             return
         }
@@ -115,7 +115,7 @@ extension WeatherViewController {
     @objc func handleReloadButtonTapped() {
         Task {
             do {
-                try await loadWeather()
+                try await reloadWeather()
             } catch {
                 presentErrorModal(error)
             }
