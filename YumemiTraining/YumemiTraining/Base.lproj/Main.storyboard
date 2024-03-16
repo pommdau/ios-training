@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-697" y="25"/>
         </scene>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="WheatherViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="YumemiTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WheatherViewController" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="YumemiTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

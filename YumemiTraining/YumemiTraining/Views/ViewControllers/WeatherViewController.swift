@@ -8,7 +8,7 @@
 import UIKit
 import YumemiWeather
 
-class ViewController: UIViewController {
+class WeatherViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -23,11 +23,26 @@ class ViewController: UIViewController {
     }
     
     // MARK: - LifeCycle
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleReloadButtonTapped),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reloadButtonTapped(self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // iOS 9.0以降またはmacOS 10.11以降は不要
+//        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - View
@@ -79,7 +94,7 @@ class ViewController: UIViewController {
 
 // MARK: - API
 
-extension ViewController {
+extension WeatherViewController {
     
     func loadWeather() async throws {
         guard let request = WheatherAPIRequest() else {
@@ -95,13 +110,9 @@ extension ViewController {
 
 // MARK: - Actions
 
-extension ViewController {
-        
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+extension WeatherViewController {
     
-    @IBAction func reloadButtonTapped(_ sender: Any) {
+    @objc func handleReloadButtonTapped() {
         Task {
             do {
                 try await loadWeather()
@@ -109,5 +120,13 @@ extension ViewController {
                 presentErrorModal(error)
             }
         }
+    }
+        
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func reloadButtonTapped(_ sender: Any) {
+        handleReloadButtonTapped()
     }
 }
