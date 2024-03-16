@@ -60,7 +60,6 @@ class ViewController: UIViewController {
             message: errorMessage,
             preferredStyle: .alert)
         
-        
         let retryAction = UIAlertAction(title: "リトライ", style: .default) { _ in
             self.reloadButtonTapped(self)
         }
@@ -87,7 +86,8 @@ extension ViewController {
             return
         }
         let response = try YumemiWeather.fetchWeather(request.jsonString)
-        let wheatherInfo = try JSONDecoder().decode(WheatherInfo.self, from: response.data(using: .utf8)!)
+        let wheatherInfo = try JSONDecoder().decode(WheatherInfo.self, 
+                                                    from: response.data(using: .utf8)!)
         self.wheatherInfo = wheatherInfo
     }
     
@@ -98,7 +98,7 @@ extension ViewController {
 extension ViewController {
         
     @IBAction func closeButtonTapped(_ sender: Any) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func reloadButtonTapped(_ sender: Any) {
